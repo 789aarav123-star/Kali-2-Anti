@@ -46,16 +46,18 @@ app.get('/google6ce7fb0b091d1d88.html', (req, res) => {
 
 // 2. Dynamic XML Sitemap Route
 app.get('/sitemap.xml', (req, res) => {
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  
   res.header('Content-Type', 'application/xml');
   res.send(`<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://sitemaps.org">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://vercel.app</loc>
+        <loc>${baseUrl}/</loc>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
       </url>
       <url>
-        <loc>https://vercel.appprivacy-policy</loc>
+        <loc>${baseUrl}/privacy-policy</loc>
         <priority>0.5</priority>
         <changefreq>monthly</changefreq>
       </url>
@@ -203,7 +205,6 @@ app.get('/api/whatsapp-url', (req, res) => {
   } else if (type === 'takeaway') {
     text = `Hello Kali Hotel! I'd like to place a food takeaway order / check today's specials.`;
   } else if (message) {
-    // Sanitize basic text
     const cleanMsg = String(message).replace(/[<>]/g, '').trim().slice(0, 300);
     text = `Hello Kali Hotel! ${cleanMsg}`;
   }
