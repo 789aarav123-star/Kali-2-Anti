@@ -35,7 +35,36 @@ app.use(express.static(path.join(__dirname, 'public/images'), {
   maxAge: isProd ? '1d' : 0
 }));
 
+// ==========================================
+// 🚀 SEO & GOOGLE VERIFICATION ROUTES
+// ==========================================
+
+// 1. Google Verification File Backup Route
+app.get('/google6ce7fb0b091d1d88.html', (req, res) => {
+  res.send('google-site-verification: google6ce7fb0b091d1d88.html');
+});
+
+// 2. Dynamic XML Sitemap Route
+app.get('/sitemap.xml', (req, res) => {
+  res.header('Content-Type', 'application/xml');
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://sitemaps.org">
+      <url>
+        <loc>https://vercel.app</loc>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+      </url>
+      <url>
+        <loc>https://vercel.appprivacy-policy</loc>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+      </url>
+    </urlset>`);
+});
+
+// ==========================================
 // SEO Structured Data (Schema.org JSON-LD)
+// ==========================================
 const generateSchemaJsonLd = () => {
   return {
     "@context": "https://schema.org",
