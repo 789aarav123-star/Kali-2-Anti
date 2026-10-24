@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public/images'), {
 }));
 
 // ==========================================
-// 🚀 SEO & GOOGLE VERIFICATION ROUTES
+// 🚀 SEO & SITEMAP ROUTES (PLACED AT THE TOP)
 // ==========================================
 
 // 1. Google Verification File Backup Route
@@ -228,7 +228,7 @@ app.get('/health', (req, res) => {
   });
 });
 
-// 404 Handler
+// 404 Handler (Must remain at the very bottom)
 app.use((req, res) => {
   res.status(404).render('404', {
     restaurant: restaurantData,
