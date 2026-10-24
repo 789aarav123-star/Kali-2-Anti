@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham - Multi-Cuisine, Bar & Celebrations' %></title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham - Multi-Cuisine, Bar & Celebrations' %>">
+  <meta name="description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Kali Hotel and Restaurant is a premier dining destination in Janakpur Dham offering attractive ambience, high notch service, mouth watering cuisines, private cabins, and birthday celebrations. Call +977 9854025213.' %>">
+  <meta name="keywords" content="Kali Hotel, Kali Restaurant Janakpur, Janakpur Dham restaurant, Ring Road Janakpur, Chicken Biryani Janakpur, Mutton Jhol Momo, Paneer Crispy, Birthday party Janakpur, Cabin restaurant Janakpur, Privacy Policy Kali Hotel">
+  <meta name="author" content="Kali Hotel & Restaurant">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= canonicalUrl %>">
+  <meta property="og:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham' %>">
+  <meta property="og:description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Kali Hotel and Restaurant is a restaurant in Janakpur Dham where we would provide customers a unique experience of attractive ambience, high notch service and mouth watering cuisine.' %>">
+  <meta property="og:image" content="/images/counter.jpg">
+  <meta property="og:site_name" content="Kali Hotel & Restaurant">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="<%= canonicalUrl %>">
+  <meta property="twitter:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham' %>">
+  <meta property="twitter:description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Kali Hotel and Restaurant is a restaurant in Janakpur Dham where we would provide customers a unique experience of attractive ambience, high notch service and mouth watering cuisine.' %>">
+  <meta property="twitter:image" content="/images/counter.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/logo_kali.jpg">
+  <link rel="apple-touch-icon" href="/images/logo_kali.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/css/style.css?v=1.0.3">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <% if (typeof schemaData !== 'undefined' && schemaData) { %>
+    <script type="application/ld+json">
+      <%- schemaData %>
+    </script>
+  <% } %>
+</head>
+<body class="bg-[#0b1329] text-slate-100 antialiased selection:bg-[#d4af37] selection:text-[#0b1329]">

@@ -1,0 +1,167 @@
+<!-- Reviews & Social Proof Section -->
+<section id="reviews" class="py-24 relative bg-slate-950/80 border-t border-slate-800/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header with 4.0 Star Rating Metrics -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-[#d4af37]/40 text-xs text-[#d4af37] font-semibold uppercase tracking-wider mb-4 shadow-md">
+        <span>Verified Diner Feedback</span>
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-6">
+        Loved by Diners &amp; <span class="gold-gradient-text">Janakpur Locals</span>
+      </h2>
+
+      <!-- Grand Rating Badge Display -->
+      <div class="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 p-4 sm:px-8 sm:py-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-[#101a36] border border-[#d4af37]/40 shadow-2xl">
+        <div class="flex items-center gap-3">
+          <span class="font-serif text-4xl sm:text-5xl font-extrabold text-[#f7d774]">4.0</span>
+          <div class="flex flex-col text-left">
+            <div class="flex items-center text-amber-400">
+              <% for(let i=0; i<4; i++) { %>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <% } %>
+              <!-- 5th star partial/empty -->
+              <svg class="w-5 h-5 text-slate-600 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-xs text-slate-300 font-medium mt-0.5">Overall Google Rating</span>
+          </div>
+        </div>
+
+        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+
+        <div class="text-center sm:text-left">
+          <p class="text-sm font-bold text-white">167+ Genuine Reviews</p>
+          <a href="<%= restaurant.googleMapsUrl %>" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="text-xs text-[#d4af37] hover:text-[#f7d774] underline flex items-center justify-center sm:justify-start gap-1 mt-0.5">
+            <span>Read on Google Maps</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Featured Local Guides Grid -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#d4af37]"></span>
+        <h3 class="text-xs uppercase font-bold text-[#d4af37] tracking-wider">Top Google Local Guide Spotlights</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <% restaurant.testimonials.slice(0, 2).forEach(review => { %>
+          <article class="glass-panel p-8 rounded-2xl glass-panel-hover flex flex-col justify-between border-t-2 border-t-[#d4af37]">
+            <div>
+              <div class="flex items-start justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#d4af37] to-[#aa851e] text-[#0b1329] font-serif font-bold text-lg flex items-center justify-center shadow-md">
+                    <%= review.name.split(' ').map(n => n[0]).join('') %>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-bold text-white flex items-center gap-2">
+                      <span><%= review.name %></span>
+                      <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#d4af37]/20 text-[#f7d774] border border-[#d4af37]/30">
+                        <%= review.badge || review.role %>
+                      </span>
+                    </h4>
+                    <p class="text-xs text-slate-400"><%= review.reviewsCount %> · Google Local Guide</p>
+                  </div>
+                </div>
+
+                <!-- 5 Stars -->
+                <div class="flex text-amber-400">
+                  <% for(let i=0; i<review.rating; i++) { %>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <% } %>
+                </div>
+              </div>
+
+              <!-- Review Text -->
+              <p class="text-slate-200 text-sm leading-relaxed mb-6 font-light italic">
+                &ldquo;<%= review.text %>&rdquo;
+              </p>
+            </div>
+
+            <!-- Recommendation Tags -->
+            <div class="pt-4 border-t border-slate-800">
+              <p class="text-[11px] uppercase font-bold text-[#d4af37] tracking-wider mb-2">Recommended Items &amp; Services:</p>
+              <div class="flex flex-wrap gap-2">
+                <% review.highlights.forEach(h => { %>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-slate-200 border border-slate-700"><%= h %></span>
+                <% }) %>
+              </div>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+
+    <!-- Additional Janakpur Local Community Reviews -->
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <h3 class="text-xs uppercase font-bold text-slate-300 tracking-wider">Local Diners &amp; Regulars Feedback</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <% restaurant.testimonials.slice(2).forEach(review => { %>
+          <article class="glass-panel p-6 rounded-2xl glass-panel-hover flex flex-col justify-between border-t border-t-slate-700 hover:border-t-[#d4af37]">
+            <div>
+              <!-- Header -->
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-slate-800 border border-[#d4af37]/40 text-[#f7d774] font-serif font-bold text-sm flex items-center justify-center shadow-inner shrink-0">
+                    <%= review.name.split(' ').map(n => n[0]).join('') %>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white leading-tight"><%= review.name %></h4>
+                    <span class="inline-block text-[10px] text-emerald-400 font-medium">
+                      <%= review.badge || review.role %>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 5 Stars -->
+                <div class="flex text-amber-400 shrink-0">
+                  <% for(let i=0; i<review.rating; i++) { %>
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <% } %>
+                </div>
+              </div>
+
+              <!-- Quote text -->
+              <p class="text-slate-300 text-xs leading-relaxed mb-4 line-clamp-6 italic">
+                &ldquo;<%= review.text %>&rdquo;
+              </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="pt-3 border-t border-slate-800">
+              <div class="flex flex-wrap gap-1.5">
+                <% review.highlights.slice(0, 2).forEach(h => { %>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900/90 text-slate-300 border border-slate-800"><%= h %></span>
+                <% }) %>
+              </div>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+
+    <!-- Review Submission Callout -->
+    <div class="mt-14 text-center">
+      <a href="<%= restaurant.googleMapsUrl %>" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#d4af37] hover:text-[#f7d774] border-b border-dashed border-[#d4af37]/40 hover:border-[#f7d774] pb-1 transition-all">
+        <span>View all 167+ Google Reviews or leave your own rating on Google Maps</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>

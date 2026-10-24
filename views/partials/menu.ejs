@@ -1,0 +1,84 @@
+<!-- Food Items & Menu Section -->
+<section id="menu" class="py-24 relative bg-slate-950/60 border-t border-slate-800/80">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-[#d4af37]/30 text-xs text-[#d4af37] font-semibold uppercase tracking-wider mb-4 shadow-sm">
+        <span>Curated Culinary Highlights</span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+        Our Signature <span class="gold-gradient-text">Delicacies</span>
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+        From sizzling tandoor naans to spicy Nepali jhol momos and rich dum biryanis, every dish is crafted with fresh
+        ingredients, authentic spices, and heartfelt Mithila hospitality.
+      </p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none"
+      role="tablist" aria-label="Menu Categories">
+      <% restaurant.menuCategories.forEach((cat, index)=> { %>
+        <button type="button" role="tab" id="tab-<%= cat.id %>" aria-selected="<%= index === 0 ? 'true' : 'false' %>"
+          aria-controls="panel-<%= cat.id %>" data-category="<%= cat.id %>"
+          class="menu-tab-btn shrink-0 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 border border-slate-700/60 focus:outline-none focus:ring-2 focus:ring-[#d4af37] <%= index === 0 ? 'bg-[#d4af37] text-[#0b1329] font-bold shadow-lg shadow-[#d4af37]/25 border-[#d4af37]' : 'bg-slate-900/80 text-slate-300 hover:text-[#f7d774] hover:bg-slate-800' %>">
+          <%= cat.name %>
+        </button>
+        <% }); %>
+    </div>
+
+    <!-- Dishes Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-dishes-grid">
+      <% restaurant.dishes.forEach((dish)=> { %>
+        <article
+          class="dish-card glass-panel rounded-2xl overflow-hidden glass-panel-hover flex flex-col transition-all duration-300"
+          data-category="<%= dish.category %>">
+
+          <!-- Dish Image -->
+          <div class="relative h-64 overflow-hidden bg-slate-900 group">
+            <img src="/images/<%= dish.image %>" alt="<%= dish.name %> served at Kali Hotel & Restaurant" loading="lazy"
+              class="zoomable-image w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500 cursor-zoom-in">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Card Body — Name Only -->
+          <div class="p-5">
+            <h3 class="font-serif text-lg font-bold text-white leading-snug">
+              <%= dish.name %>
+            </h3>
+          </div>
+        </article>
+        <% }); %>
+    </div>
+
+    <!-- Bottom Notice & Quick Callout -->
+    <div
+      class="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-[#101a36] border border-[#d4af37]/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+      <div class="flex items-center gap-4 text-left">
+        <div
+          class="w-12 h-12 rounded-xl bg-[#d4af37]/15 border border-[#d4af37]/40 flex items-center justify-center shrink-0 text-[#d4af37]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="text-white font-serif font-bold text-lg">Looking for Full Dine-in or Catering Menu?</h4>
+          <p class="text-slate-300 text-xs sm:text-sm mt-0.5">We prepare bespoke vegetarian and non-vegetarian menus for
+            party orders, kitty parties, and family feasts.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="https://wa.me/9779854025213?text=Hello%20Kali%20Hotel!%20Please%20share%20the%20full%20menu%20and%20party%20catering%20rates."
+          target="_blank" rel="noopener noreferrer"
+          class="px-5 py-3 rounded-xl bg-[#d4af37] hover:bg-[#f7d774] text-[#0b1329] font-bold text-xs uppercase tracking-wider shadow-md shadow-[#d4af37]/30 transition-all">
+          Request Full Menu
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
