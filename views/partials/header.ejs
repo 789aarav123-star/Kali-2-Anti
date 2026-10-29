@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham - Multi-Cuisine, Bar & Celebrations' %></title>
   
+  <!-- Explicit Canonical Link -->
+  <link rel="canonical" href="<%= typeof canonicalUrl !== 'undefined' ? canonicalUrl : 'https://kalihotelv2.vercel.app/' %>" />
+  
   <!-- Primary Meta Tags -->
   <meta name="title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham - Multi-Cuisine, Bar & Celebrations' %>">
   <meta name="description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Kali Hotel and Restaurant is a premier dining destination in Janakpur Dham offering attractive ambience, high notch service, mouth watering cuisines, private cabins, and birthday celebrations. Call +977 9854025213.' %>">
@@ -15,19 +18,19 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="<%= canonicalUrl %>">
+  <meta property="og:url" content="<%= typeof canonicalUrl !== 'undefined' ? canonicalUrl : 'https://kalihotelv2.vercel.app/' %>">
   <meta property="og:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham' %>">
   <meta property="og:description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Kali Hotel and Restaurant is a restaurant in Janakpur Dham where we would provide customers a unique experience of attractive ambience, high notch service and mouth watering cuisine.' %>">
-  <meta property="og:image" content="/images/counter.jpg">
+  <meta property="og:image" content="https://kalihotelv2.vercel.app/images/counter.jpg">
   <meta property="og:site_name" content="Kali Hotel & Restaurant">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="<%= canonicalUrl %>">
+  <meta property="twitter:url" content="<%= typeof canonicalUrl !== 'undefined' ? canonicalUrl : 'https://kalihotelv2.vercel.app/' %>">
   <meta property="twitter:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Kali Hotel & Restaurant | Janakpur Dham' %>">
   <meta property="twitter:description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Kali Hotel and Restaurant is a restaurant in Janakpur Dham where we would provide customers a unique experience of attractive ambience, high notch service and mouth watering cuisine.' %>">
-  <meta property="twitter:image" content="/images/counter.jpg">
+  <meta property="twitter:image" content="https://kalihotelv2.vercel.app/images/counter.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="/images/logo_kali.jpg">
