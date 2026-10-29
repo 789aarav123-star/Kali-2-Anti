@@ -66,17 +66,18 @@ app.get('/sitemap.xml', (req, res) => {
 
 // ==========================================
 // SEO Structured Data (Schema.org JSON-LD)
+// Dynamic Host Matching for Vercel/Custom Domain
 // ==========================================
-const generateSchemaJsonLd = () => {
+const generateSchemaJsonLd = (baseUrl) => {
   return {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "@id": "https://kalihotelandrestaurant.com/#restaurant",
+    "@id": `${baseUrl}/#restaurant`,
     "name": restaurantData.name,
     "image": [
-      "https://kalihotelandrestaurant.com/images/logo_kali.jpg",
-      "https://kalihotelandrestaurant.com/images/counter.jpg",
-      "https://kalihotelandrestaurant.com/images/chi_biryani-1.jpg"
+      `${baseUrl}/images/logo_kali.jpg`,
+      `${baseUrl}/images/counter.jpg`,
+      `${baseUrl}/images/chi_biryani-1.jpg`
     ],
     "description": restaurantData.description,
     "telephone": restaurantData.phoneRaw,
@@ -149,21 +150,29 @@ const generateSchemaJsonLd = () => {
 
 // Main Route
 app.get('/', (req, res) => {
-  const schemaData = JSON.stringify(generateSchemaJsonLd());
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const baseUrl = `${protocol}://${req.get('host')}`;
+  const canonicalUrl = `${baseUrl}/`;
+  const schemaData = JSON.stringify(generateSchemaJsonLd(baseUrl));
+
   res.render('index', {
     restaurant: restaurantData,
     schemaData,
     currentYear: new Date().getFullYear(),
-    canonicalUrl: `${req.protocol}://${req.get('host')}${req.originalUrl}`
+    canonicalUrl
   });
 });
 
 // Privacy Policy Route
 app.get('/privacy-policy', (req, res) => {
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const baseUrl = `${protocol}://${req.get('host')}`;
+  const canonicalUrl = `${baseUrl}/privacy-policy`;
+
   res.render('privacy', {
     restaurant: restaurantData,
     currentYear: new Date().getFullYear(),
-    canonicalUrl: `${req.protocol}://${req.get('host')}/privacy-policy`,
+    canonicalUrl,
     pageTitle: 'Privacy Policy & Tracker Disclosures | Kali Hotel & Restaurant Janakpur',
     pageDescription: 'Official Privacy Policy & Tracker Disclosures for Kali Hotel & Restaurant Janakpur Dham.'
   });
